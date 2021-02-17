@@ -5,7 +5,14 @@ import androidx.databinding.Bindable
 import androidx.lifecycle.MutableLiveData
 
 
-class SoundViewModel {
+class SoundViewModel(private val beatBox: BeatBox) {
+    fun onButtonClicked() {
+        sound?.let {
+            beatBox.play(it)
+        }
+
+    }
+
     val title: MutableLiveData<String?> = MutableLiveData()
 
     var sound: Sound? = null
